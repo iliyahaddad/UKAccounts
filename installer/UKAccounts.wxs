@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="UK Accounts" Language="1033" Version="1.0.0.0" Manufacturer="UK Accounts Ltd" UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of UK Accounts is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="UK Accounts" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="[ProgramFilesFolder]UKAccounts" />
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="UKAccounts">
+          <Directory Id="ApplicationFolder" />
+          <Directory Id="DocumentationFolder" Name="Documentation" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="UK Accounts" />
+      </Directory>
+      <Directory Id="DesktopFolder" />
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="ApplicationFolder">
+      <Component Id="MainExecutable" Guid="PUT-GUID-HERE">
+        <File Id="UKAccountsExe" Source="$(var.UKAccounts.Desktop.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="ArelleWorker" Guid="PUT-GUID-HERE">
+        <File Id="ArelleWorkerExe" Source="$(var.UKAccounts.ArelleWorker.TargetPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="IxbrlWorker" Guid="PUT-GUID-HERE">
+        <File Id="IxbrlWorkerExe" Source="$(var.UKAccounts.IxbrlWorker.TargetPath)" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="PUT-GUID-HERE">
+        <Shortcut Id="ApplicationStartMenuShortcut" 
+                  Name="UK Accounts" 
+                  Description="UK Small Company Accounting Application" 
+                  Target="[INSTALLFOLDER]UKAccounts.Desktop.exe" 
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\UKAccounts" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="PUT-GUID-HERE">
+        <Shortcut Id="DesktopShortcut" 
+                  Name="UK Accounts" 
+                  Description="UK Small Company Accounting Application" 
+                  Target="[INSTALLFOLDER]UKAccounts.Desktop.exe" 
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\UKAccounts" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch UK Accounts" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+  </Fragment>
+</Wix>

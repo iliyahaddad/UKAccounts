@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UKAccounts.Domain\UKAccounts.Domain.csproj" />
+    <ProjectReference Include="..\UKAccounts.UK\UKAccounts.UK.csproj" />
+    <ProjectReference Include="..\UKAccounts.Application\UKAccounts.Application.csproj" />
+  </ItemGroup>
+</Project>

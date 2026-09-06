@@ -1,0 +1,46 @@
+using Microsoft.Extensions.DependencyInjection;
+using UKAccounts.Application.Interfaces;
+using UKAccounts.Infrastructure.Services;
+using UKAccounts.Desktop.Services;
+
+namespace UKAccounts.Desktop;
+
+public static class ServiceCollectionExtensions
+{
+    public static IServiceCollection AddDesktopServices(this IServiceCollection services)
+    {
+        services.AddScoped<IReportService, Reporting.ReportService>();
+        services.AddScoped<IIxbrlGenerator, Xbrl.IxbrlGenerator>();
+        services.AddScoped<ICompaniesHouseClient, CompaniesHouse.MockCompaniesHouseClient>();
+        services.AddScoped<IImportProvider, Import.ImportProvider>();
+        services.AddScoped<IPasswordHasher, Security.PasswordHasher>();
+        services.AddScoped<INavigationService, Services.NavigationService>();
+        services.AddScoped<SessionService>();
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddScoped<IPermissionService, PermissionService>();
+        services.AddScoped<IAuditLogService, AuditLogService>();
+        services.AddScoped<ICompanyService, CompanyService>();
+        services.AddScoped<ICompaniesHouseLookupService, CompaniesHouseLookupService>();
+        services.AddScoped<IChartOfAccountsService, ChartOfAccountsService>();
+        services.AddScoped<IJournalService, JournalService>();
+        services.AddScoped<IAccountingEngine, AccountingEngine>();
+        services.AddScoped<IGeneralLedgerService, GeneralLedgerService>();
+        services.AddScoped<ITrialBalanceService, TrialBalanceService>();
+        services.AddScoped<ICustomerService, CustomerService>();
+        services.AddScoped<ISupplierService, SupplierService>();
+        services.AddScoped<IInvoiceService, InvoiceService>();
+        services.AddScoped<IBillService, BillService>();
+        services.AddScoped<IExpenseService, ExpenseService>();
+        services.AddScoped<IDocumentService, DocumentService>();
+        services.AddScoped<IBankAccountService, BankAccountService>();
+        services.AddScoped<IBankTransactionService, BankTransactionService>();
+        services.AddScoped<IBankStatementService, BankStatementService>();
+        services.AddScoped<IImportMappingService, ImportMappingService>();
+        services.AddScoped<AccountsProductionService>();
+        services.AddScoped<IArelleValidator, ArelleValidator>();
+        services.AddScoped<IFilingService, FilingService>();
+        services.AddScoped<IBackupService, BackupService>();
+
+        return services;
+    }
+}

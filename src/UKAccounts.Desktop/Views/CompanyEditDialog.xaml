@@ -1,0 +1,59 @@
+<Window x:Class="UKAccounts.Desktop.Views.CompanyEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Company Details" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Company Number:" Grid.Row="0" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBox x:Name="CompanyNumberTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Company Name:" Grid.Row="1" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBox x:Name="CompanyNameTextBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Registered Office:" Grid.Row="2" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBox x:Name="RegisteredOfficeTextBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Company Type:" Grid.Row="3" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBox x:Name="CompanyTypeTextBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Accounting Reference Date:" Grid.Row="4" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <DatePicker x:Name="AccountingReferenceDatePicker" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Currency:" Grid.Row="5" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CurrencyComboBox" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10" SelectedIndex="0">
+            <ComboBoxItem Content="GBP"/>
+            <ComboBoxItem Content="EUR"/>
+            <ComboBoxItem Content="USD"/>
+        </ComboBox>
+
+        <TextBlock Text="Accounts Regime:" Grid.Row="6" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <ComboBox x:Name="RegimeComboBox" Grid.Row="6" Grid.Column="1" Margin="0,0,0,10" SelectedIndex="0">
+            <ComboBoxItem Content="Dormant"/>
+            <ComboBoxItem Content="MicroEntity"/>
+            <ComboBoxItem Content="SmallCompany"/>
+        </ComboBox>
+
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="OK" Width="80" Margin="0,0,10,0" Click="OkButton_Click"/>
+            <Button Content="Cancel" Width="80" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

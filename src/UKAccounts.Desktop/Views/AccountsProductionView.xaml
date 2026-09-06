@@ -1,0 +1,44 @@
+<Window x:Class="UKAccounts.Desktop.Views.AccountsProductionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Accounts Production" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Accounts Production" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <TextBlock Text="Company:" Grid.Row="1" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBlock x:Name="CompanyTextBlock" Grid.Row="1" Margin="100,0,0,10" VerticalAlignment="Center"/>
+
+        <TextBlock Text="Accounting Period:" Grid.Row="2" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <TextBlock x:Name="PeriodTextBlock" Grid.Row="2" Margin="100,0,0,10" VerticalAlignment="Center"/>
+
+        <TextBlock Text="Accounts Type:" Grid.Row="3" Margin="0,0,10,5" VerticalAlignment="Center"/>
+        <ComboBox x:Name="RegimeComboBox" Grid.Row="3" Margin="100,0,0,10" Width="200" SelectedIndex="0">
+            <ComboBoxItem Content="Dormant"/>
+            <ComboBoxItem Content="Micro-Entity"/>
+            <ComboBoxItem Content="Small Company"/>
+        </ComboBox>
+
+        <CheckBox x:Name="IncludeDirectorsReportCheckBox" Grid.Row="4" Margin="100,0,0,10" Content="Include Directors' Report"/>
+        <CheckBox x:Name="IncludeNotesCheckBox" Grid.Row="5" Margin="100,0,0,10" Content="Include Notes to Accounts"/>
+
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="6" Margin="0,10,0,10" Foreground="Gray"/>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Generate" Width="80" Margin="0,0,10,0" Click="Generate_Click" IsDefault="True"/>
+            <Button Content="Close" Width="80" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

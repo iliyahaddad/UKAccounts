@@ -1,0 +1,28 @@
+<Window x:Class="UKAccounts.Desktop.Views.TrialBalanceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Trial Balance" Height="500" Width="700">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Trial Balance" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <DataGrid x:Name="TrialBalanceDataGrid" Grid.Row="1" Margin="0,0,0,10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code" Binding="{Binding AccountCode}" Width="80"/>
+                <DataGridTextColumn Header="Account Name" Binding="{Binding AccountName}" Width="250"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="120"/>
+                <DataGridTextColumn Header="Debit" Binding="{Binding Debit, StringFormat=N2}" Width="100"/>
+                <DataGridTextColumn Header="Credit" Binding="{Binding Credit, StringFormat=N2}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Close" Width="80" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UKAccounts.Application\UKAccounts.Application.csproj" />
+    <ProjectReference Include="..\UKAccounts.Infrastructure\UKAccounts.Infrastructure.csproj" />
+    <ProjectReference Include="..\UKAccounts.Accounting\UKAccounts.Accounting.csproj" />
+    <ProjectReference Include="..\UKAccounts.UK\UKAccounts.UK.csproj" />
+    <ProjectReference Include="..\UKAccounts.Xbrl\UKAccounts.Xbrl.csproj" />
+    <ProjectReference Include="..\UKAccounts.CompaniesHouse\UKAccounts.CompaniesHouse.csproj" />
+    <ProjectReference Include="..\UKAccounts.Import\UKAccounts.Import.csproj" />
+    <ProjectReference Include="..\UKAccounts.Security\UKAccounts.Security.csproj" />
+    <ProjectReference Include="..\UKAccounts.Reporting\UKAccounts.Reporting.csproj" />
+  </ItemGroup>
+</Project>

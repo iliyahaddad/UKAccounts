@@ -1,0 +1,34 @@
+<Window x:Class="UKAccounts.Desktop.Views.AgedPayablesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aged Payables" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Aged Payables" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <DataGrid x:Name="AgedPayablesDataGrid" Grid.Row="1" Margin="0,0,0,10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Bill #" Binding="{Binding BillNumber}" Width="100"/>
+                <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}" Width="200"/>
+                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}" Width="100"/>
+                <DataGridTextColumn Header="Current" Binding="{Binding Current, StringFormat=N2}" Width="80"/>
+                <DataGridTextColumn Header="1-30" Binding="{Binding Days1to30, StringFormat=N2}" Width="60"/>
+                <DataGridTextColumn Header="31-60" Binding="{Binding Days31to60, StringFormat=N2}" Width="60"/>
+                <DataGridTextColumn Header="61-90" Binding="{Binding Days61to90, StringFormat=N2}" Width="60"/>
+                <DataGridTextColumn Header="90+" Binding="{Binding Over90, StringFormat=N2}" Width="60"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=N2}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Export CSV" Width="80" Margin="0,0,10,0" Click="ExportCsv_Click"/>
+            <Button Content="Close" Width="80" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

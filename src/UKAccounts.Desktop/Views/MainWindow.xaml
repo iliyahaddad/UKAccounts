@@ -1,0 +1,67 @@
+<Window x:Class="UKAccounts.Desktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UK Accounts" Height="600" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Company" Click="NewCompany_Click"/>
+                <MenuItem Header="_Open Company" Click="OpenCompany_Click"/>
+                <Separator/>
+                <MenuItem Header="_Backup &amp; Restore" Click="BackupRestore_Click"/>
+                <Separator/>
+                <MenuItem Header="_Logout" Click="Logout_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Company">
+                <MenuItem Header="_Switch Company" Click="SwitchCompany_Click"/>
+                <MenuItem Header="_Company Settings" Click="CompanySettings_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Accounting">
+                <MenuItem Header="_Chart of Accounts" Click="ChartOfAccounts_Click"/>
+                <MenuItem Header="_Journal Entry" Click="JournalEntry_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Sales">
+                <MenuItem Header="_Customers" Click="Customers_Click"/>
+                <MenuItem Header="_Invoices" Click="Invoices_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Purchases">
+                <MenuItem Header="_Suppliers" Click="Suppliers_Click"/>
+                <MenuItem Header="_Bills" Click="Bills_Click"/>
+                <MenuItem Header="_Expenses" Click="Expenses_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Banking">
+                <MenuItem Header="_Bank Accounts" Click="BankAccounts_Click"/>
+                <MenuItem Header="_Reconciliation" Click="Reconciliation_Click"/>
+            </MenuItem>
+            <MenuItem Header="_UK Accounts">
+                <MenuItem Header="_Prepare Annual Accounts" Click="PrepareAnnualAccounts_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Filing">
+                <MenuItem Header="_Filing History" Click="FilingHistory_Click"/>
+                <MenuItem Header="_Manual Filing Package" Click="ManualFiling_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Reports">
+                <MenuItem Header="_Trial Balance" Click="TrialBalance_Click"/>
+                <MenuItem Header="_Profit &amp; Loss" Click="ProfitLoss_Click"/>
+                <MenuItem Header="_Balance Sheet" Click="BalanceSheet_Click"/>
+                <MenuItem Header="_General Ledger" Click="GeneralLedger_Click"/>
+                <MenuItem Header="_Cash Flow" Click="CashFlow_Click"/>
+                <MenuItem Header="_Aged Receivables" Click="AgedReceivables_Click"/>
+                <MenuItem Header="_Aged Payables" Click="AgedPayables_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusTextBlock" Text="Ready"/>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="CurrentCompanyTextBlock" Text="No company selected"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid Margin="10">
+            <TextBlock Text="Welcome to UK Accounts" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        </Grid>
+    </DockPanel>
+</Window>

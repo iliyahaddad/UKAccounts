@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsTestProject>true</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\UKAccounts.Domain\UKAccounts.Domain.csproj" />
+    <ProjectReference Include="..\..\src\UKAccounts.Application\UKAccounts.Application.csproj" />
+    <ProjectReference Include="..\..\src\UKAccounts.Infrastructure\UKAccounts.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\UKAccounts.Accounting\UKAccounts.Accounting.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+  </ItemGroup>
+</Project>
